@@ -1,0 +1,218 @@
+/* 🌈 Theme Variables */
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --nav-bg: #ffffff;
+  --primary: linear-gradient(135deg, #3b82f6, #06b6d4);
+  --solid: #3b82f6;
+  --hover: #2563eb;
+  --border: #e5e7eb;
+}
+
+.dark-theme {
+  --bg: #000000;
+  --text: #ffffff;
+  --nav-bg: rgba(0, 0, 0, 0.85);
+  --primary: linear-gradient(135deg, #38bdf8, #6366f1);
+  --solid: #38bdf8;
+  --hover: #0ea5e9;
+  --border: #334155;
+}
+
+/* 🌍 Global */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* 🌙 Force dark */
+body.dark-theme {
+  background: #000000;
+}
+
+/* 🔥 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--nav-bg);
+  backdrop-filter: none;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0px 2%;
+}
+
+/* 🌙 Keep dark SAME */
+.dark-theme .navbar {
+  backdrop-filter: blur(6px);
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo img {
+  width: 140px;
+  height: auto;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .nav-logo img {
+    width: 200px;
+  }
+}
+
+/* Logo Text */
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  background: var(--primary);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* 🔗 Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);   /* ✅ FIX */
+  font-size: 15px;
+  position: relative;
+  padding: 8px 0;
+  display: inline-block;
+  font-weight: 500;
+}
+
+/* Underline effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: var(--solid);
+  left: 0;
+  bottom: 0;
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after,
+.nav-links .active::after {
+  width: 100%;
+}
+
+/* 🔥 FIX REACT ROUTER LINK COLOR */
+.nav-links a,
+.nav-links a:visited,
+.nav-links a:active {
+  color: var(--text) !important;
+  text-decoration: none;
+}
+/* ⚙️ Actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 🌗 Theme Toggle */
+.theme-toggle {
+  width: 50px;
+  height: 26px;
+  border-radius: 20px;
+  background: var(--solid);
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.toggle-circle {
+  background: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+.dark-theme .toggle-circle {
+  transform: translateX(22px);
+}
+
+/* 🔘 Buttons */
+.btn {
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+/* Login */
+.login {
+  background: transparent;
+  border: 1px solid var(--solid);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.login:hover {
+  background: var(--solid);
+  color: #fff;
+  box-shadow: 0 0 8px var(--solid);
+}
+
+/* Signup */
+.signup {
+  background: var(--primary);
+  color: #fff;
+}
+
+.signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Hover lift */
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* 📄 ABOUT SECTION FIX */
+.about-container {
+  background: var(--bg);   /* ✅ white in light */
+  text-align: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+}

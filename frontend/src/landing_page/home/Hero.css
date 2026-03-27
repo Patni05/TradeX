@@ -1,0 +1,45 @@
+.hero-section{
+    padding: 60px 20px;
+    background: #ffffff;
+}
+
+/* Image animation */
+.hero-image{
+    max-width: 80%;
+    animation: fadeUp 1s ease-in-out;
+}
+
+/* Title animation */
+.hero-title{
+    font-size: 48px;
+    font-weight: 600;
+    animation: fadeUp 1.3s ease-in-out;
+}
+
+/* Text animation */
+.hero-text{
+    font-size: 18px;
+    color: #555;
+    margin-top: 15px;
+    animation: fadeUp 1.6s ease-in-out;
+}
+
+/* Button animation */
+.hero-btn{
+    margin-top: 25px;
+    padding: 12px 35px;
+    font-size: 18px;
+    animation: fadeUp 1.9s ease-in-out;
+}
+
+/* Animation keyframes */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}

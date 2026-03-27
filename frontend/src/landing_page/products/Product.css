@@ -1,0 +1,30 @@
+/* Product Page Theme */
+
+.product-page {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Sections */
+.product-section {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Images */
+.product-section img {
+  filter: brightness(1);
+}
+
+/* Optional dark tweak */
+.dark-theme .product-section img {
+  filter: brightness(0.9);
+}
+
+/* Text */
+.product-page h1,
+.product-page h2,
+.product-page p {
+  color: var(--text);
+}

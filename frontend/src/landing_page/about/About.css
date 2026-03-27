@@ -1,0 +1,121 @@
+/* 🌞 Light Mode (PURE WHITE) */
+:root {
+  --bg: #ffffff;          /* pure white */
+  --text: #111827;
+  --subtext: #4b5563;
+  --card-bg: #ffffff;
+  --accent: #4f46e5;
+  --border: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* 🌙 Dark Mode */
+
+
+/* 🌟 Container */
+.about-container {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--bg);
+  min-height: 100vh;
+  transition: 0.3s;
+}
+
+/* 🧠 Headings */
+.about-title {
+  font-size: 2.5rem;
+  color: var(--text);
+}
+
+.about-subtitle {
+  color: var(--subtext);
+  margin-bottom: 40px;
+}
+
+/* 👥 Team Layout */
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* 💎 Card */
+.card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 18px;
+  width: 260px;
+
+  /* 👇 key change for light mode */
+  border: 1px solid var(--border);
+
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+/* 🔥 Hover */
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* 🖼 Image */
+.card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+}
+
+/* ✍️ Text */
+.card h2 {
+  margin: 12px 0 5px;
+  color: var(--text);
+}
+
+.card h4 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--subtext);
+}
+
+
+
+
+
+/* Links */
+
+
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #555;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.social-icons a:nth-child(1):hover {
+  color: #e1306c; /* Instagram */
+}
+
+.social-icons a:nth-child(2):hover {
+  color: rgb(57, 204, 57) /* GitHub */
+}
+
+.social-icons a:nth-child(3):hover {
+  color: #0077b5; /* LinkedIn */
+}

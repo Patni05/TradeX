@@ -1,0 +1,310 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    font-family: 'Poppins';
+}
+
+
+/* dark Theme  */
+.dark-theme{
+  background-color:#0d0d0d;
+  color:#e4e4e7;
+  transition: all 0.3s ease;
+}
+
+/* containers */
+.dark-theme .container{
+  background-color:#111111;
+}
+
+/* headings */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4{
+  color:#ffffff;
+}
+
+/* paragraph */
+.dark-theme p{
+  color:#b3b3b3;
+}
+
+/* buttons */
+.dark-theme .btn-primary{
+  background-color:#3b82f6;
+  border:none;
+}
+
+.dark-theme .btn-primary:hover{
+  background-color:#2563eb;
+}
+
+/* cards / sections */
+.dark-theme .card{
+  background-color:#151515;
+  border:1px solid #262626;
+  color:#e4e4e7;
+}
+
+/* links */
+.dark-theme a{
+  color:#60a5fa;
+}
+
+.dark-theme a:hover{
+  color:#93c5fd;
+}
+
+
+
+/* pricing.css */
+
+
+.pricing-card{
+
+  border:1px solid #1f2937;
+  border-radius:12px;
+  transition:all 0.3s ease;
+}
+
+.pricing-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.pricing-text{
+  color:#9ca3af;
+}
+
+.pricing-link{
+  color:#3b82f6;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.pricing-link:hover{
+  color:#60a5fa;
+}
+
+
+/* Award Css */
+
+
+.awards-image{
+  max-width:90%;
+}
+
+.awards-para{
+  color:#4b5563;   /* light mode readable */
+  line-height:1.7;
+}
+
+.dark-theme .awards-para{
+  color:#9ca3af;   /* dark mode readable */
+}
+
+.awards-list li{
+  margin-bottom:12px;
+  font-weight:500;
+  transition:0.2s;
+}
+
+.awards-list li:hover{
+  transform:translateX(4px);
+}
+
+.awards-list i{
+  color:#3b82f6;
+}
+
+.awards-logos{
+  opacity:0.85;
+}
+
+
+
+/* stats css */
+
+.hero-text{
+  color:#6b7280;
+  line-height:1.7;
+}
+
+.dark-theme .hero-text{
+  color:#9ca3af;
+}
+
+.stats-link{
+  text-decoration:none;
+  font-weight:600;
+  color:#3b82f6;
+}
+
+.stats-link:hover{
+  color:#2563eb;
+}
+
+.stats-image{
+  max-width:85%;
+}
+
+
+
+
+
+
+/* education */
+
+
+.edu-text{
+  color:#6b7280;
+  line-height:1.7;
+}
+
+.dark-theme .edu-text{
+  color:#9ca3af;
+}
+
+.edu-link{
+  text-decoration:none;
+  font-weight:600;
+  color:#3b82f6;
+}
+
+.edu-link:hover{
+  color:#2563eb;
+}
+
+.edu-image{
+  max-width:85%;
+}
+
+.footer a{
+  text-decoration: none;
+  color: inherit;   /* same as parent */
+}
+/* section {
+  background: #ffffff !important;
+
+} */
+
+
+section {
+  background: var(--bg);
+}
+
+/* 🔥 FIX TEXT VISIBILITY IN LIGHT MODE */
+body:not(.dark-theme) {
+  color: #000000;
+}
+
+/* Headings */
+body:not(.dark-theme) h1,
+body:not(.dark-theme) h2,
+body:not(.dark-theme) h3,
+body:not(.dark-theme) h4,
+body:not(.dark-theme) h5,
+body:not(.dark-theme) h6 {
+  color: #000000 !important;
+}
+
+/* Paragraphs & normal text */
+body:not(.dark-theme) p,
+body:not(.dark-theme) span,
+body:not(.dark-theme) li {
+  color: black !important;
+}
+
+/* Links */
+body:not(.dark-theme) a {
+  color: #2563eb !important;   /* blue links */
+}
+
+
+/* support
+ */
+
+
+ #supportWrapper{
+  color: white;
+  background-color: rgb(116, 129, 213);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+ }
+ #supportWrapper2{
+  color: white;
+  background-color: rgb(116, 129, 213);
+  display: flex;
+  justify-content: space-between;
+
+ }
+
+
+ #supportWrapper a{
+  color: wheat !important;
+  text-decoration: none;
+
+ }
+
+ #supportHero{
+  color: white;
+
+
+}
+
+/* 🔵 Light Mode */
+#supportHero {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* 🔗 Links */
+#supportHero a {
+  color: white !important;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+#supportHero a:hover {
+  color: #e0e7ff !important;
+  transform: translateX(3px);
+}
+
+/* 🔍 Input styling */
+#supportHero .form-control {
+  border: none;
+  box-shadow: none;
+}
+
+#supportHero .input-group-text {
+  background: white;
+  border: none;
+}
+
+/* 🌙 Dark Mode */
+.dark-theme #supportHero {
+  background-color:black;
+}
+
+.dark-theme #supportHero h4,
+.dark-theme #supportHero h5 {
+  color: #ffffff;
+}
+
+.dark-theme #supportHero a {
+  color: #93c5fd !important;
+}
+
+.dark-theme #supportHero a:hover {
+  color: #bfdbfe !important;
+}
+

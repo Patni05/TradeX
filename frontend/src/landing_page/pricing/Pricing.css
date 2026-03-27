@@ -1,0 +1,32 @@
+/* Pricing Page Theme */
+
+.pricing-page {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Cards */
+.pricing-card {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Text */
+.pricing-page h1,
+.pricing-page h2,
+.pricing-page h4 {
+  color: var(--text);
+}
+
+.pricing-page p {
+  color: var(--text);
+  opacity: 0.7;
+}
