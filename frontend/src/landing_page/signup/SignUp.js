@@ -3,8 +3,8 @@ import React from 'react'
 function SignUp() {
     return (
         <h1>
-            Signup
-            
+            signup is compulsary is it important 
+
         </h1>
      );
 }
