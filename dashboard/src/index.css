@@ -896,3 +896,35 @@ body.dark .actions button {
   color: white;
 }
 
+
+/* p {
+  color: var(--text) !important;
+} */
+
+
+.profile {
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.profile-dropdown button {
+  margin-top: 10px;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

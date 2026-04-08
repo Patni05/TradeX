@@ -7,7 +7,7 @@ function AboutPage() {
     {
       name: "Lakshya",
       role: "Frontend Developer",
-      img: "media/images/lakshya.png",
+      img: "media/images/#",
       desc: "Passionate about building modern and responsive user interfaces.",
       socials: {
         instagram: "https://instagram.com/",
@@ -18,7 +18,7 @@ function AboutPage() {
     {
       name: "Bhupesh",
       role: "Backend Developer",
-      img: "media/images/patni2.jpg",
+      img: "media/images/#",
       desc: "Handles server-side logic and database management efficiently.",
       socials: {
         instagram: "https://instagram.com/patnibhupesh4",
@@ -27,9 +27,9 @@ function AboutPage() {
       }
     },
     {
-      name: "Rohit",
+      name: "Satyam",
       role: "Designer",
-      img: "media/images/lakshya.png",
+      img: "media/images/#",
       desc: "Creates beautiful and user-friendly designs.",
       socials: {
         instagram: "#",

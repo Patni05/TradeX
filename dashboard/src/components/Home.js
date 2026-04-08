@@ -3,6 +3,7 @@ import  { useState, useEffect } from "react";
 
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
+import ChatAi from "./ChatAi";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -15,13 +16,30 @@ const Home = () => {
     }
   }, [darkMode]);
 
+
+
+
+useEffect(() => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const tokenFromURL = urlParams.get("token");
+
+  if (tokenFromURL) {
+    localStorage.setItem("token", tokenFromURL);
+
+    // URL clean karo (important)
+    window.history.replaceState({}, document.title, "/");
+  }
+}, []);
+
   return (
     <>
-     <button onClick={() => setDarkMode(!darkMode)}>
+     {/* <button onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? "Light Mode ☀️" : "Dark Mode 🌙"}
-      </button>
+      </button> */}
       <TopBar />
       <Dashboard />
+       <ChatAi/>
+
     </>
   );
 };

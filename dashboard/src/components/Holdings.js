@@ -1,10 +1,26 @@
-import React from "react";
-import { holdings } from "../data/data";
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
+
+// import { holdings } from "../data/data";
+// import { use } from "react";
 
 const Holdings = () => {
+
+const [allHoldings, setallHoldings] = useState([]);
+
+useEffect(() => {
+
+  axios.get("http://localhost:3002/allHoldings").then((res)=>{
+    console.log(res.data);
+    setallHoldings(res.data);
+  })
+
+}, []);
+
+
   return (
     <>
-      <h3 className="title">Holdings ({holdings.length})</h3>
+      <h3 className="title">Holdings ({allHoldings.length})</h3>
 
       <div className="order-table">
         <table>
@@ -20,7 +36,7 @@ const Holdings = () => {
           </tr>
 
 
-          {holdings.map((stock,index)=> {
+          {allHoldings.map((stock,index)=> {
             const currValue = stock.price * stock.qty;
             const isProfit = currValue - stock.avg * stock.qty >= 0.0;
             const profitClass = isProfit ? "profit" :"loss";
@@ -32,10 +48,12 @@ const Holdings = () => {
             <tr key = {index} className="">
             <td>{stock.name}</td>
             <td>{stock.qty}</td>
-            <td>{stock.avg.toFixed(2)}</td>
-            <td>{stock.price.toFixed(2)}</td>
-            <td>{currValue.toFixed(2)}</td>
-            <td className={profitClass}> {(currValue-stock.qty*stock.avg).toFixed(2)} </td>
+            <td>{(stock.avg || 0).toFixed(2)}</td>
+            <td>{(stock.price || 0).toFixed(2)}</td>
+            <td>{(currValue || 0).toFixed(2)}</td>
+            <td className={profitClass}>
+        {((currValue - stock.qty * (stock.avg || 0)) || 0).toFixed(2)}
+        </td>
             <td className={profitClass}> {stock.net} </td>
             <td className={dayClass}> {stock.day} </td>
           </tr>
@@ -43,7 +61,7 @@ const Holdings = () => {
 
             )
           })}
-          
+
         </table>
       </div>
 

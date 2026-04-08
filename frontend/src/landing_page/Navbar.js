@@ -37,6 +37,8 @@ function Navbar() {
          <li>
           <Link to="/support">Support</Link>
         </li>
+
+
       </ul>
 
       {/* Actions */}
@@ -47,12 +49,17 @@ function Navbar() {
         </button>
 
         {/* Login */}
-<button className={`btn ${dark ? "btn-outline-light" : "btn-outline-dark"}`}>
-  Login
-</button>
+        <Link  to="/login">
+<button className={`btn ${dark ? "btn-outline-light" : "btn-outline-dark"}`}>Login</button>
+</Link>
         {/* Signup */}
+
+        <Link to="/signup">
         <button className="btn signup m-2">Sign Up</button>
+</Link>
       </div>
+
+
     </nav>
   );
 }
