@@ -1,48 +1,280 @@
-.signup-container {
-  height: 100vh;
+/* ═══════════════════════════
+   SignUp.css — Dark/Light Mode
+   ═══════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ─── DARK (default) ─── */
+:root {
+  --su-bg:           #06080f;
+  --su-card-bg:      rgba(255, 255, 255, 0.04);
+  --su-card-border:  rgba(255, 255, 255, 0.08);
+  --su-text:         #eef0ff;
+  --su-subtext:      #7b83a8;
+  --su-muted:        #2e3250;
+  --su-primary:      #7c6fff;
+  --su-primary-dim:  rgba(124, 111, 255, 0.12);
+  --su-primary-glow: rgba(124, 111, 255, 0.3);
+  --su-secondary:    #ff6b9d;
+  --su-error:        #ff5f7e;
+  --su-error-dim:    rgba(255, 95, 126, 0.1);
+  --su-shadow:       0 28px 64px rgba(0, 0, 0, 0.8);
+  --su-radius:       13px;
+}
+
+/* ─── LIGHT ─── */
+@media (prefers-color-scheme: light) {
+  :root {
+    --su-bg:           #f1f2ff;
+    --su-card-bg:      rgba(255, 255, 255, 0.85);
+    --su-card-border:  rgba(124, 111, 255, 0.18);
+    --su-text:         #0f1128;
+    --su-subtext:      #545880;
+    --su-muted:        #c4c8e8;
+    --su-primary:      #5a50e0;
+    --su-primary-dim:  rgba(90, 80, 224, 0.08);
+    --su-primary-glow: rgba(90, 80, 224, 0.22);
+    --su-secondary:    #d63f8a;
+    --su-error:        #d62c2c;
+    --su-error-dim:    rgba(214, 44, 44, 0.08);
+    --su-shadow:       0 20px 48px rgba(90, 80, 224, 0.12);
+  }
+}
+
+body.light-mode {
+  --su-bg:           #f1f2ff;
+  --su-card-bg:      rgba(255, 255, 255, 0.85);
+  --su-card-border:  rgba(124, 111, 255, 0.18);
+  --su-text:         #0f1128;
+  --su-subtext:      #545880;
+  --su-muted:        #c4c8e8;
+  --su-primary:      #5a50e0;
+  --su-primary-dim:  rgba(90, 80, 224, 0.08);
+  --su-primary-glow: rgba(90, 80, 224, 0.22);
+  --su-secondary:    #d63f8a;
+  --su-error:        #d62c2c;
+  --su-error-dim:    rgba(214, 44, 44, 0.08);
+  --su-shadow:       0 20px 48px rgba(90, 80, 224, 0.12);
+}
+
+/* ─── PAGE ─── */
+.su-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--su-bg);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+/* Ambient orb 1 */
+.su-container::before {
+  content: '';
+  position: absolute;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: var(--su-primary);
+  filter: blur(120px);
+  opacity: 0.35;
+  top: -10%; left: -8%;
+  animation: su-orb 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Ambient orb 2 */
+.su-container::after {
+  content: '';
+  position: absolute;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: var(--su-secondary);
+  filter: blur(110px);
+  opacity: 0.3;
+  bottom: -8%; right: -6%;
+  animation: su-orb 12s ease-in-out infinite alternate-reverse;
+  pointer-events: none;
+}
+
+@keyframes su-orb {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(22px, -30px) scale(1.07); }
+}
+
+/* ─── RIGHT PANEL ─── */
+.su-right {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.signup-card {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 40px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  text-align: center;
-  width: 300px;
-}
-
-.signup-card h2 {
-  color: white;
-  margin-bottom: 20px;
-}
-
-.signup-card input {
+  padding: 24px;
+  z-index: 2;
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
 }
 
-.signup-card button {
+/* ─── CARD ─── */
+.su-card {
+  position: relative;
   width: 100%;
-  padding: 10px;
-  background: #00c6ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  max-width: 390px;
+  padding: 42px 38px;
+  border-radius: 22px;
+  background: var(--su-card-bg);
+  border: 1px solid var(--su-card-border);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow: var(--su-shadow);
+  animation: su-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* top accent line */
+.su-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 18%; right: 18%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--su-primary), var(--su-secondary), transparent);
+  border-radius: 0 0 2px 2px;
+}
+
+@keyframes su-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ─── HEADING ─── */
+.su-card h2 {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: var(--su-text);
+  margin: 0 0 22px 0;
+}
+
+/* ─── INPUT GROUP ─── */
+.su-input {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+/* Input */
+.su-input input {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: var(--su-radius);
+  border: 1px solid var(--su-muted);
+  background: var(--su-primary-dim);
+  color: var(--su-text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s;
+}
+
+.su-input input::placeholder {
+  color: transparent; /* hidden — label acts as placeholder */
+}
+
+.su-input input:focus {
+  border-color: var(--su-primary);
+  background: var(--su-primary-dim);
+  box-shadow: 0 0 0 3px var(--su-primary-glow);
+}
+
+/* Error border */
+.su-input input.error {
+  border-color: var(--su-error);
+  background: var(--su-error-dim);
+  box-shadow: 0 0 0 3px rgba(255, 95, 126, 0.15);
+}
+
+/* ─── FLOATING LABEL ─── */
+.su-input label {
+  position: absolute;
+  top: 13px;
+  left: 14px;
+  color: var(--su-subtext);
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  background: transparent;
+}
+
+.su-input input:focus + label,
+.su-input input:not(:placeholder-shown) + label {
+  top: -9px;
+  left: 11px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--su-primary);
+  padding: 0 4px;
+  background: var(--su-bg);
+  border-radius: 4px;
+}
+
+/* ─── ERROR TEXT ─── */
+.su-error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--su-error);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ─── PASSWORD ROW ─── */
+.su-password span {
+  position: absolute;
+  right: 13px;
+  top: 13px;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 15px;
+  user-select: none;
+  transition: opacity 0.2s;
 }
 
-.signup-card button:hover {
-  background: #0096c7;
-  transform: scale(1.05);
+.su-password span:hover {
+  opacity: 0.7;
 }
-.signup-card input {
-  margin: 12px 0;
+
+/* ─── BUTTON ─── */
+.su-card button {
+  width: 100%;
+  padding: 13.5px;
+  border-radius: var(--su-radius);
+  border: none;
+  background: linear-gradient(135deg, var(--su-primary) 0%, var(--su-secondary) 100%);
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+  box-shadow: 0 4px 18px var(--su-primary-glow);
+}
+
+.su-card button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px var(--su-primary-glow);
+}
+
+.su-card button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.su-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .su-card {
+    padding: 30px 22px;
+    border-radius: 18px;
+  }
 }

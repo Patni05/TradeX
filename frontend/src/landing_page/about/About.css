@@ -1,121 +1,237 @@
-/* 🌞 Light Mode (PURE WHITE) */
-:root {
-  --bg: #ffffff;          /* pure white */
-  --text: #111827;
-  --subtext: #4b5563;
-  --card-bg: #ffffff;
-  --accent: #4f46e5;
-  --border: #e5e7eb;
-  --shadow: rgba(0, 0, 0, 0.08);
-}
+/* ============================================================
+   about.css  —  TradeX About / Team Page
+   Aesthetic: Refined Geometric Luxury
+   ============================================================ */
 
-/* 🌙 Dark Mode */
-
-
-/* 🌟 Container */
+/* ── Page ───────────────────────────────────────────────────── */
 .about-container {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   text-align: center;
-  padding: 60px 20px;
-  background: var(--bg);
+  padding: 80px 20px;
   min-height: 100vh;
-  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition), color var(--transition);
 }
 
-/* 🧠 Headings */
+/* Grid background — same as SignUp */
+.about-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Gold radial glow */
+.about-container::after {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 50%;
+  background: radial-gradient(ellipse, rgba(201,169,110,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Headings ───────────────────────────────────────────────── */
 .about-title {
-  font-size: 2.5rem;
-  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s var(--ease-out) both;
+}
+
+/* Gold dot — consistent with SignUp h2 */
+.about-title::after {
+  content: '.';
+  color: var(--accent);
 }
 
 .about-subtitle {
-  color: var(--subtext);
-  margin-bottom: 40px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s 0.1s var(--ease-out) both;
 }
 
-/* 👥 Team Layout */
+/* ── Team Grid ──────────────────────────────────────────────── */
 .team-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 24px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
-/* 💎 Card */
+/* ── Team Card ──────────────────────────────────────────────── */
 .card {
-  background: var(--card-bg);
-  padding: 25px;
-  border-radius: 18px;
-  width: 260px;
-
-  /* 👇 key change for light mode */
+  background: var(--bg-card);
   border: 1px solid var(--border);
-
-  box-shadow: 0 8px 20px var(--shadow);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  width: 260px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  animation: fadeUp 0.6s var(--ease-out) both;
 }
 
-/* 🔥 Hover */
+/* Accent top line */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border-radius: 0 0 4px 4px;
+  transition: background var(--transition);
+}
+
+/* Decorative circle */
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(77, 122, 18, 0.35);
 }
 
-/* 🖼 Image */
+.card:hover::before {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* ── Avatar ─────────────────────────────────────────────────── */
 .card img {
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--accent);
+  border: 2px solid var(--accent);
+  display: block;
+  margin: 0 auto;
+  transition: border-color var(--transition), transform var(--transition);
 }
 
-/* ✍️ Text */
+.card:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Card Text ──────────────────────────────────────────────── */
 .card h2 {
-  margin: 12px 0 5px;
-  color: var(--text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 14px 0 4px;
 }
 
 .card h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 14px;
-  color: var(--subtext);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
 }
 
-
-
-
-
-/* Links */
-
-
+/* ── Social Icons ───────────────────────────────────────────── */
 .social-icons {
-  margin-top: 10px;
+  margin-top: 14px;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 14px;
 }
 
 .social-icons a {
-  color: #555;
-  font-size: 20px;
-  transition: 0.3s;
+  color: var(--text-label);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card-inner);
+  transition: color var(--transition), border-color var(--transition), transform var(--transition), background var(--transition);
 }
 
 .social-icons a:hover {
-  transform: scale(1.2);
+  transform: translateY(-2px);
+  border-color: var(--accent);
 }
 
 .social-icons a:nth-child(1):hover {
-  color: #e1306c; /* Instagram */
+  color: #e1306c;
+  border-color: #e1306c;
 }
 
 .social-icons a:nth-child(2):hover {
-  color: rgb(57, 204, 57) /* GitHub */
+  color: var(--text-primary);
+  border-color: var(--text-primary);
 }
 
 .social-icons a:nth-child(3):hover {
-  color: #0077b5; /* LinkedIn */
+  color: #0077b5;
+  border-color: #0077b5;
+}
+
+/* ── Stagger animation ──────────────────────────────────────── */
+.team-container .card:nth-child(1) { animation-delay: 0.1s; }
+.team-container .card:nth-child(2) { animation-delay: 0.2s; }
+.team-container .card:nth-child(3) { animation-delay: 0.3s; }
+.team-container .card:nth-child(4) { animation-delay: 0.4s; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 56px 16px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
 }

@@ -1,30 +1,75 @@
-/* Product Page Theme */
+/* ============================================================
+   product.css  —  TradeX Product Page
+   Aesthetic: Refined Geometric Luxury
+   ============================================================ */
 
 .product-page {
-  background: var(--bg);
-  color: var(--text);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   min-height: 100vh;
 }
 
-/* Sections */
-.product-section {
-  background: var(--bg);
-  color: var(--text);
-}
-
-/* Images */
-.product-section img {
-  filter: brightness(1);
-}
-
-/* Optional dark tweak */
-.dark-theme .product-section img {
-  filter: brightness(0.9);
-}
-
-/* Text */
 .product-page h1,
-.product-page h2,
+.product-page h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.product-page h1::after,
+.product-page h2::after {
+  content: '.';
+  color: var(--accent);
+}
+
 .product-page p {
-  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.product-section {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-section:nth-child(even) {
+  background-color: var(--bg-card-inner);
+}
+
+.product-section::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  left: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  opacity: 0.35;
+}
+
+.product-section img {
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  filter: brightness(1);
+  transition: filter var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.product-section img:hover {
+  transform: scale(1.015);
+  box-shadow: var(--shadow-hover);
+}
+
+.dark-theme .product-section img {
+  filter: brightness(0.88);
+}
+
+@media (max-width: 768px) {
+  .product-section::before { display: none; }
 }

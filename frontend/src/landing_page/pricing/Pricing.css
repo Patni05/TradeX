@@ -1,32 +1,117 @@
-/* Pricing Page Theme */
+/* ============================================================
+   pricing.css  —  TradeX Pricing Page
+   Aesthetic: Refined Geometric Luxury
+   ============================================================ */
 
 .pricing-page {
-  background: var(--bg);
-  color: var(--text);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
   min-height: 100vh;
+  position: relative;
 }
 
-/* Cards */
+.pricing-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing-page h1,
+.pricing-page h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.pricing-page h1::after,
+.pricing-page h2::after {
+  content: '.';
+  color: var(--accent);
+}
+
+.pricing-page h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pricing-page p {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
 .pricing-card {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  animation: fadeUp 0.6s var(--ease-out) both;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border-radius: 0 0 4px 4px;
+  transition: background var(--transition);
+}
+
+.pricing-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .pricing-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(201, 169, 110, 0.35);
 }
 
-/* Text */
-.pricing-page h1,
-.pricing-page h2,
-.pricing-page h4 {
-  color: var(--text);
+.pricing-card:hover::before {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
-.pricing-page p {
-  color: var(--text);
-  opacity: 0.7;
+.pricing-card.featured {
+  border-color: rgba(201, 169, 110, 0.45);
+  background: var(--bg-card-inner);
+}
+
+.pricing-card.featured::before {
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.pricing-card:nth-child(1) { animation-delay: 0.1s; }
+.pricing-card:nth-child(2) { animation-delay: 0.2s; }
+.pricing-card:nth-child(3) { animation-delay: 0.3s; }
+
+@media (max-width: 768px) {
+  .pricing-card { border-radius: var(--radius-lg); }
 }
